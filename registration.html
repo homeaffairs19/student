@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="registrationApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-controller="RegistrationController as ctrl">
+
+    <h1>Registration Form</h1>
+
+    <form ng-submit="ctrl.submitRegistration()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" ng-model="ctrl.registration.name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" ng-model="ctrl.registration.age" required>
+
+        <label for="random1">Random 1:</label>
+        <input type="text" id="random1" ng-model="ctrl.registration.random1" required>
+
+        <label for="random2">Random 2:</label>
+        <input type="text" id="random2" ng-model="ctrl.registration.random2" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>All Registrations:</h2>
+    <ul>
+        <li ng-repeat="registration in ctrl.registrations">
+            {{ registration.name }} - Age: {{ registration.age }},
+            Random 1: {{ registration.random1 }}, Random 2: {{ registration.random2 }}
+        </li>
+    </ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
